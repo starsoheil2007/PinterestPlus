@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="viewModel" type="com.soulvana.pinterestplus.view_models.SplashActivityViewModel"/>
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:src="@mipmap/splash_background"
+                android:scaleType="fitXY"
+                android:id="@+id/splashBackground"
+                android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:id="@+id/logo"
+                android:src="@mipmap/logo"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"/>
+
+
+        <ProgressBar
+                android:id="@+id/progressCircular"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:theme="@style/AppTheme.WhiteAccent"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+</layout>

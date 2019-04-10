@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="viewModel" type="com.soulvana.pinterestplus.view_models.FeedListRowViewModel"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:background="@drawable/background_list_row"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/mainImage"
+                    android:scaleType="centerCrop"
+                    imageUrl="@{viewModel.mainImageUrl}"
+                    android:layout_height="@dimen/feedImageHeight"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/mainImage"
+                    android:layout_marginTop="-30dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginBottom="20dp"
+                    imageUrl="@{viewModel.profileImageUrl}"
+                    app:civ_border_color="#00000000"
+                    app:civ_border_width="0dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:layout_below="@+id/mainImage"
+                    android:layout_toRightOf="@+id/profileImage"
+                    android:layout_marginLeft="5dp"
+                    android:text="@{viewModel.userName}"
+                    android:textSize="@dimen/text_size_standard"
+                    android:id="@+id/userName"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/text_size_small"
+                    android:id="@+id/time"
+                    android:text="@{viewModel.time}"
+                    android:textColor="@android:color/holo_red_light"
+                    android:layout_below="@+id/mainImage"
+                    android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/mainImage"
+                    android:layout_marginTop="-40dp"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="3dp"
+                    android:gravity="center"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/background_like"
+                    android:layout_height="30dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dp"
+                        imageResource="@{viewModel.likedUserIcon}"
+                        android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/likeCount"
+                        android:text="@{viewModel.likeCount}"
+                        android:layout_marginStart="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
